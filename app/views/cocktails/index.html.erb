@@ -9,7 +9,7 @@
     <div class="card-deck" style="width: 18rem;">
       <div class="card" >
         <div class="card-index">
-          <img class="card-img-top" src="http://www.blogangeloni.com.br/wp-content/uploads/2011/06/07.jpg" alt="Card image cap">
+         <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
         </div>
         <div class="card-body">
           <h5 class="card-title text-danger"> <%= cocktail.name %> </h5>
