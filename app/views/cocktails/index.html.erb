@@ -1,0 +1,20 @@
+<div class="container mt-5 text-center">
+  <h1>Choose your mood</h1>
+</div>
+
+<ul>
+  <% @cocktails.each do |cocktail| %>
+    <div class="card-deck" style="width: 18rem;">
+      <div class="card" >
+        <div class="card-index">
+          <img class="card-img-top" src="http://www.blogangeloni.com.br/wp-content/uploads/2011/06/07.jpg" alt="Card image cap">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-danger"> <%= cocktail.name %> </h5>
+          <%= link_to "Recipe", cocktail_path(cocktail)  %>
+        </div>
+      </div>
+    </div>
+  <% end %>  
+</ul>
+
