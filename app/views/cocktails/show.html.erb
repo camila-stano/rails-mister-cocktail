@@ -1,4 +1,4 @@
-
+<%= render "shared/navbar" %>
 <div class="container mt-5 text-center">
   <h1><%= @cocktail.name %></h1>
 </div>
@@ -8,9 +8,9 @@
     <div class="col-3">
       <div class="card-deck" style="width: 18rem;">
         <div class="card" >
-          <img class="card-img-top" style="width-300" src="http://www.blogangeloni.com.br/wp-content/uploads/2011/06/07.jpg" alt="Card image cap">
-           <%= link_to "Add doses", new_cocktail_dose_path(@cocktail), class: "btn btn-danger" %>
-           <%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail), class: "btn btn-danger" %>
+          <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+          <%= link_to "Add doses", new_cocktail_dose_path(@cocktail), class: "btn btn-danger" %>
+          <%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail), class: "btn btn-danger" %>
         </div>
       </div>
     </div>
