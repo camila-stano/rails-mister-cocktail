@@ -1,4 +1,5 @@
 class CocktailsController < ApplicationController
+  
   def index
     @cocktails = Cocktail.all
   end
@@ -18,11 +19,11 @@ class CocktailsController < ApplicationController
   end
 
   def show
-    find
+    set_cocktail
   end
 
   def edit
-    find
+    set_cocktail
     
   end
 
@@ -31,13 +32,14 @@ class CocktailsController < ApplicationController
   end
 
   def destroy
+    set_cocktail
     @cocktail.destroy
     redirect_to cocktails_path
   end
 
   private 
 
-  def find
+  def set_cocktail
     @cocktail = Cocktail.find(params[:id])
   end
 
