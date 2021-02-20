@@ -9,7 +9,7 @@
     <div class="card-deck" style="width: 18rem;">
       <div class="card" >
         <div class="card-index">
-         <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
+          <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
         </div>
         <div class="card-body">
           <h5 class="card-title text-danger"> <%= cocktail.name %> </h5>
@@ -20,3 +20,4 @@
   <% end %>  
 </ul>
 
+<%= render "shared/footer" %>
