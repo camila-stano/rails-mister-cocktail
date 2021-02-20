@@ -21,7 +21,7 @@
     // font-weight: bold;  
   }
 
-  .card-show-img {
+  .card-medio-img {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,4 +31,18 @@
     height: 350px;
     background-size: cover;
     background-position: center;
+  }
+
+  .card-medio-content {
+    background-color: $red;
+    padding: 7px;
+    text-align: center;
+  }
+
+  .card-medio-content a {
+    color: white;
+  }
+
+  .card-medio-content a:hover {
+    opacity: .5;
   }

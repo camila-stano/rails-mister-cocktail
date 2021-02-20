@@ -1,44 +1,50 @@
 <%= render "shared/navbar" %>
 
 <div class="container">
-  <div class="row">
+  <%# <div class="row">
     <div class="col-12">
       <div>
-        <h3 class="title"> <%= @cocktail.name %> </h3>
+        Title, talvez
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-4">
-      <div class="card-medio">
-        <div class="card-medio-img">
-          <div class="card-show-img" style=" background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @cocktail.photo.key %>)"></div>
-        </div>
-        <div class="card-medio-content">
-          <% if @cocktail.doses == nil %>
-            <%= link_to "Add doses", new_cocktail_dose_path(@cocktail), class: "btn btn-danger" %>
-          <% else %>
-            <%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail), class: "btn btn-danger" %>
-          <% end  %>
+  </div> %>
+  <div class="margin-top-60">
+    <div class="row">
+      <div class="col-4">
+        <div class="card-medio">
+          <div>
+            <div class="card-medio-img" style=" background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @cocktail.photo.key %>)"></div>
+          </div>
+          <div class="card-medio-content">
+            <% if @cocktail.doses == nil %>
+              <%= link_to "Add doses", new_cocktail_dose_path(@cocktail), class: "" %>
+            <% else %>
+              <%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail), class: "" %>
+            <% end  %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-8">
-      <div class="list">
-        <div class="card-body">
-          <% @cocktail.doses.each do |dose| %>
-            <div class="row border">
-              <div class="col-2 my-1 border-right">
-                <%= dose.description %>
-              </div>
-              <div class="col-8 my-1 ">
-                <%= dose.ingredient.name %>
-              </div>
-              <div class="col-2 my-1 ">
-                <%# <%= link_to "Delete", dose_path(@dose), method: :delete, class: "btn btn-secondary", data: { confirm: 'Are you sure?'}  %>
-              </div>
-            </div> 
-          <% end %>
+      <div class="col-8">
+        <div>
+        <h1 class="sub-title underline"> <%= @cocktail.name %> </h3>
+          <h2 class="sub-title"> Recipe </h2>
+        </div>
+        <div class="list">
+          <div class="card-body">
+            <% @cocktail.doses.each do |dose| %>
+              <div class="row border">
+                <div class="col-2 my-1 border-right">
+                  <%= dose.description %>
+                </div>
+                <div class="col-8 my-1 ">
+                  <%= dose.ingredient.name %>
+                </div>
+                <div class="col-2 my-1 ">
+                  <%# <%= link_to "Delete", dose_path(@dose), method: :delete, class: "btn btn-secondary", data: { confirm: 'Are you sure?'}  %>
+                </div>
+              </div> 
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
