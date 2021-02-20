@@ -1,6 +1,6 @@
 class DosesController < ApplicationController
   # before_action :find_cocktail, only: %i[new create]
-  before_action :find, only: %i[destroy]
+  before_action :find, only: %i[ update destroy]
   
   def new
     @cocktail = Cocktail.find(params[:cocktail_id])
@@ -17,6 +17,14 @@ class DosesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @cocktail = Cocktail.find(params[:cocktail_id])
+    @doses = @cocktail.doses
+  end
+
+  def update
   end
 
   def destroy

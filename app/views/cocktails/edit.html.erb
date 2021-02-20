@@ -1,0 +1,40 @@
+<%= render "shared/navbar" %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-5">
+      <div class="card-new" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @cocktail.photo.key %>)">
+        <div>
+            <h3><%= @cocktail.name %></h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-7 p-3 bg-primary">
+      <h2 class="font-weight-bold">Dose</h2>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description %>
+        <%= f.association :ingredient, collection: Ingredient.all %>
+        <button class = "btn btn-secondary p-1 bg-info color-warning" ><%= f.submit "Add a new dose!"  %></button>
+        <%= link_to "Update cocktail", cocktail_path(@cocktail), class: "btn btn-secondary p-2 bg-success color-warning" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <% @doses.each do |dose| %>
+    <div class="row border">
+      <div class="col-2 my-1 border-right">
+        <%= dose.description %>
+      </div>
+      <div class="col-8 my-1 ">
+        <%= dose.ingredient.name %>
+      </div>
+      <div class="col-2 my-1 ">
+        <%= link_to "Delete", cocktail_doses_path(@cocktail), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-secondary" %>
+      </div>
+    </div> 
+  <% end %>
+</div>
+
+<%= render "shared/footer" %>

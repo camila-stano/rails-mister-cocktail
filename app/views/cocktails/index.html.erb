@@ -1,23 +1,26 @@
 <%= render "shared/navbar" %>
 
-<div class="container mt-5 text-center">
-  <h1>Choose your mood</h1>
-</div>
-
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <div class="card-deck" style="width: 18rem;">
-      <div class="card" >
-        <div class="card-index">
-          <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill, class: "card-img-top" %>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title text-danger"> <%= cocktail.name %> </h5>
-          <%= link_to "Recipe", cocktail_path(cocktail)  %>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="container m-5 text-center">
+        <h1 class="ff-rock">Cine and Cocktails</h1>
       </div>
     </div>
-  <% end %>  
-</ul>
+  </div>
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-4">
+        <div class="card-small">
+          <div class="card-small-img" style=" background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path cocktail.photo.key %>)"></div>
+          <div class="card-small-content">
+            <h5 class="card-title text-light"> <%= cocktail.name %> </h5>
+            <%= link_to "Recipe", cocktail_path(cocktail)  %>
+          </div>
+        </div>
+      </div>
+    <% end %>  
+  </div>
+</div>
 
 <%= render "shared/footer" %>
