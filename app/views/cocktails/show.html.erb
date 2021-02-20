@@ -19,7 +19,7 @@
             <% if @cocktail.doses == nil %>
               <%= link_to "Add doses", new_cocktail_dose_path(@cocktail), class: "" %>
             <% else %>
-              <%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail), class: "" %>
+              <%= link_to "Edit Cocktail", new_cocktail_dose_path(@cocktail), class: "" %>
             <% end  %>
           </div>
         </div>
