@@ -13,6 +13,7 @@
       <h2 class="font-weight-bold">Cocktail</h2>
       <%= simple_form_for [@cocktail] do |f| %>
         <%= f.input :name %>
+        <%= f.input :link_spotify %>
         <%= f.input :photo, as: :file %>
         <button class = "btn btn-secondary p-1 bg-info color-warning" ><%= f.submit "Create your cocktail!" %> </button>
       <% end %>
