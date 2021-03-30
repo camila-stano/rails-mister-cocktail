@@ -3,8 +3,8 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <div class="container m-5 text-center">
-        <h1 class="">Cine and Cocktails</h1>
+      <div class="my-5">
+        <h5 class="">Cena 1 - INT. Em algum lugar de Pinheiros - DIA/NOITE</h5>
       </div>
     </div>
   </div>
@@ -13,14 +13,27 @@
       <div class="col-4">
         <div class="card-small">
           <div class="card-small-img" style=" background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path cocktail.photo.key %>)"></div>
-          <div class="card-small-content">
-            <h5 class="card-title text-light"> <%= cocktail.name %> </h5>
-            <%= link_to "Recipe", cocktail_path(cocktail)  %>
+          <div class="card-small-content ">
+            <div class="col-12 ">
+              <div class="row">
+                <h5 class=""> <%= cocktail.name %> </h5> 
+              </div>
+              <div class="row ">
+                <%= link_to "Recipe", cocktail_path(cocktail)  %>
+              </div>
+              <div class="row ">
+                <a href="<%= cocktail.link_spotify %>"> Playlist </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     <% end %>  
+
   </div>
+    <div class="row box-comments" >
+      <h5>Comentários (nome/ nacionanlidade)</h5>
+    </div>
 </div>
 
 <%= render "shared/footer" %>
