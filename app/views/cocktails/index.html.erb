@@ -10,9 +10,13 @@
   </div>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
-      <div class="col-4">
+      <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="card-small">
-          <div class="card-small-img" style=" background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path cocktail.photo.key %>)"></div>
+          <% if cocktail.photo.present? %>
+            <div class="card-small-img" style=" background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cl_image_path cocktail.photo.key %>)"></div>
+          <% else %>
+            <div class="card-small-img" style=" background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= image_tag 'Martini_007.jpg' %>)"></div>
+          <% end %>
           <div class="card-small-content ">
             <div class="col-12 ">
               <div class="row">
@@ -22,7 +26,7 @@
                 <%= link_to "Recipe", cocktail_path(cocktail)  %>
               </div>
               <div class="row ">
-                <a href="<%= cocktail.link_spotify %>"> Playlist </a>
+                <a href="<%= cocktail.link_spotify %>" target= "_blank"> Playlist </a>
               </div>
             </div>
           </div>

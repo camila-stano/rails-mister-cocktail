@@ -5,23 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'open-uri'
-require 'json'
+# require 'open-uri'
+# require 'json'
 
-base_url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
-drinks = JSON.parse(open(base_url).read).first[1]
+# base_url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+# drinks = JSON.parse(open(base_url).read).first[1]
 
 puts 'Cleaning up database...'
-Ingredient.destroy_all
+Cocktail.destroy_all
 puts "Database is clean!"
 
 
-puts 'Creating Ingredients'
-(0..50).to_a.each do |index|
-  ingredient = Ingredient.create(
-    name: drinks[index].values.first
+puts 'Creating cocktails'
+(0..6).to_a.each do |index|
+  cocktail = Cocktail.new(
+    name: "Negroni",
+    link_spotify: "https://open.spotify.com/",
+    # photo: image_tag "Martini_007"
   )
-  puts "Ingredient #{ingredient.id} is created."
+  cocktail.save!
+  puts "Cocktail #{cocktail.name} is created. Cocktail id: #{cocktail.id}"
 end
 
 puts 'All Done!'
