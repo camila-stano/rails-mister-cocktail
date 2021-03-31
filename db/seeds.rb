@@ -18,12 +18,18 @@ base_url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 
 puts 'Creating cocktails'
 (0..6).to_a.each do |index|
-  # file = URI.open("/Martini_007.jpg")
-# 
   cocktail = Cocktail.new(name: JSON.parse(open(base_url).read).first[1][index]["strIngredient1"], link_spotify: "https://open.spotify.com/")
   cocktail.photo.attach(io: File.open('app/assets/images/Martini_007.jpg'), filename: 'nes.png', content_type: 'image/png')
   cocktail.save!
   puts "Cocktail #{cocktail.name} is created. Cocktail id: #{cocktail.id}"
 end
+
+puts 'Creating comments'
+# (0..6).to_a.each do |index|
+#   cocktail = Cocktail.new(name: JSON.parse(open(base_url).read).first[1][index]["strIngredient1"], link_spotify: "https://open.spotify.com/")
+#   cocktail.photo.attach(io: File.open('app/assets/images/Martini_007.jpg'), filename: 'nes.png', content_type: 'image/png')
+#   cocktail.save!
+#   puts "Cocktail #{cocktail.name} is created. Cocktail id: #{cocktail.id}"
+# end
 
 puts 'All Done!'
