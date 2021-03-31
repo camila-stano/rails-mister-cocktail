@@ -8,21 +8,20 @@
 # require 'open-uri'
 # require 'json'
 
-# base_url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
-# drinks = JSON.parse(open(base_url).read).first[1]
+require "open-uri"
 
 puts 'Cleaning up database...'
 Cocktail.destroy_all
 puts "Database is clean!"
 
+base_url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 
 puts 'Creating cocktails'
 (0..6).to_a.each do |index|
-  cocktail = Cocktail.new(
-    name: "Negroni",
-    link_spotify: "https://open.spotify.com/",
-    # photo: image_tag "Martini_007"
-  )
+  # file = URI.open("/Martini_007.jpg")
+# 
+  cocktail = Cocktail.new(name: JSON.parse(open(base_url).read).first[1][index]["strIngredient1"], link_spotify: "https://open.spotify.com/")
+  cocktail.photo.attach(io: File.open('app/assets/images/Martini_007.jpg'), filename: 'nes.png', content_type: 'image/png')
   cocktail.save!
   puts "Cocktail #{cocktail.name} is created. Cocktail id: #{cocktail.id}"
 end
