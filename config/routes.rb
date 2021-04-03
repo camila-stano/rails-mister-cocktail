@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   resources :doses, only: %i[destroy]
 
-  resources :comments, only: %i[index]
+  resources :comments, only: %i[index new create]
   
 end
