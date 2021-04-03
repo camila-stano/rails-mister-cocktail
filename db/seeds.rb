@@ -2,7 +2,7 @@ require "faker"
 require "open-uri"
 
 puts 'Cleaning up database...'
-Cocktail.destroy_all-m
+Cocktail.destroy_all
 Comment.destroy_all
 puts "Database is clean!"
 
