@@ -1,0 +1,15 @@
+.btn-comment {
+  text-decoration: none;
+  opacity: .5;
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-animation: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+}
+
+.btn-comment:hover {
+  background-color: rgb(31, 31, 31);
+  color: white;
+  opacity: 1;
+}
+

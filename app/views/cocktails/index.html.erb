@@ -36,7 +36,7 @@
 
   </div>
   <div class="box-comments" >
-    <h5>Experiences</h5> 
+    <span style="font-size: 23px"> Experiences | </span> <%= link_to "Tell yours", new_comment_path, class: "btn-comment", style: "text-decoration: none" %>
     <div class="row w-100 " >
       <% @comments.each do |comment| %>
         <div class="col-sm-12 col-md-6 col-lg-4 card-comment " >
