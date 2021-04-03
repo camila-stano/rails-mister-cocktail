@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :cocktails, only: %i[index new create show edit update destroy] do 
     resources :doses, only: %i[new create edit update]
   end
-
+  
+  resources :comments, only: %i[index new create]
   resources :doses, only: %i[destroy]
 
-  resources :comments, only: %i[index new create]
   
 end
