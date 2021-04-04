@@ -36,9 +36,9 @@
 
   </div>
   <div class="box-comments" >
-    <span style="font-size: 23px"> Experiences | </span> <p id="">Tell yours</p> 
-    <%# <%= link_to "Tell yours", new_comment_path, id: "new-comment", class: "btn-comment", style: "text-decoration: none" %> 
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newComment" data-whatever="@mdo" id="comment">Tell yours</button>
+    <span style="font-size: 23px"> Experiences | </span><a type="button" class="btn-comment" data-toggle="modal" data-target="#newComment" id="comment">Tell yours</a> 
+
+
 
 
 
@@ -62,12 +62,9 @@
     comment.addEventListener("click", (event) => {
       $('#newComment').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
-        var recipient = button.data('whatever') // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
         var modal = $(this)
-        modal.find('.modal-title').text('New message to ' + recipient)
-        modal.find('.modal-body input').val(recipient)
+        modal.find('.modal-title').text('Share your experience')
+        modal.find('.modal-body input').val()
       })
       console.log("Ready!"); 
     });
