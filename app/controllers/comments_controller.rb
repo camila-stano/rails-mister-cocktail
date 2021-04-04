@@ -11,9 +11,20 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      redirect_to new_comment_dose_path(@comment)
+      redirect_to cocktails_path(@comment)
     else
       render :new
     end
   end
+
+  private 
+
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
+
+  def comment_params
+    params.require(:comment).permit(:name, :nacionality, :email, :comment)
+  end
+
 end

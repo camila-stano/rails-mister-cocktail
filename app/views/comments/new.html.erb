@@ -1,0 +1,7 @@
+        <%= simple_form_for [@comment] do |f| %>
+            <%= f.input :name %>
+            <%= f.input :nacionality %>
+            <%= f.input :email %>
+            <%= f.input :comment %>
+            <%= f.submit class: 'btn btn-primary btn-sm mb-3 w-100' %>
+          <% end %>

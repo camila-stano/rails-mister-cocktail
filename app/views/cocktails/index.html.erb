@@ -38,7 +38,7 @@
   <div class="box-comments" >
     <span style="font-size: 23px"> Experiences | </span> <p id="">Tell yours</p> 
     <%# <%= link_to "Tell yours", new_comment_path, id: "new-comment", class: "btn-comment", style: "text-decoration: none" %> 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" id="comment">Tell yours</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newComment" data-whatever="@mdo" id="comment">Tell yours</button>
 
 
 
@@ -60,9 +60,7 @@
   <script>
   const comment = document.getElementById("comment");
     comment.addEventListener("click", (event) => {
-      <%# console.log(event);
-      console.log(event.currentTarget); %>
-      $('#exampleModal').on('show.bs.modal', function (event) {
+      $('#newComment').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var recipient = button.data('whatever') // Extract info from data-* attributes
         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -71,26 +69,6 @@
         modal.find('.modal-title').text('New message to ' + recipient)
         modal.find('.modal-body input').val(recipient)
       })
-    $(document).ready(function() {  
-      $('#exampleModal').modal("show")
-
-    });
       console.log("Ready!"); 
     });
-
-
-
-
   </script>
-
-
-
-
-  <%# const initMenu = () => {
-  $("#new-comment").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-  });
-} %>
-
-

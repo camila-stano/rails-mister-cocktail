@@ -7,6 +7,8 @@ class CocktailsController < ApplicationController
 
   def new
     @cocktail = Cocktail.new
+
+
   end
 
   def create
@@ -17,6 +19,13 @@ class CocktailsController < ApplicationController
     else
       render :new
     end
+
+    # @comment = Comment.new(comment_params)
+    # if @comment.save
+    #   redirect_to new_comment_path(@comment)
+    # else
+    #   render :new
+    # end
   end
 
   def show
@@ -46,5 +55,13 @@ class CocktailsController < ApplicationController
 
   def cocktail_params
     params.require(:cocktail).permit(:name, :photo, :link_spotify)
+  end
+
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
+
+  def comment_params
+    params.require(:comment).permit(:name, :nacionality, :email, :comment)
   end
 end
